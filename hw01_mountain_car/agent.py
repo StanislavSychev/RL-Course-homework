@@ -6,7 +6,7 @@ from .train import transform_state
 
 class Agent:
     def __init__(self):
-        self.weight, self.bias = np.load(__file__[:-8] + "/agent.npz")
+        self.weight, self.bias = np.load(__file__[:-8] + "/agent.npz").values()
         
     def act(self, state):
         return np.argmax(self.weight.dot(transform_state(state)) + self.bias)
